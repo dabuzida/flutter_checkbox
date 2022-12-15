@@ -1,7 +1,3 @@
-import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:flutter/material.dart';
 
 class MyCheckbox extends StatefulWidget {
@@ -19,25 +15,12 @@ class _MyCheckboxState extends State<MyCheckbox> {
   bool isChecked6 = false;
   bool isChecked7 = false;
   bool isChecked5 = false;
-  bool isChecked8 = false;
+  bool? isChecked8 = false;
   bool isChecked9 = false;
   bool isChecked10 = false;
   bool isChecked11 = false;
   @override
   Widget build(BuildContext context) {
-    Color getColor(Set<MaterialState> states) {
-      return Colors.black;
-      const Set<MaterialState> interactiveStates = <MaterialState>{
-        MaterialState.pressed,
-        MaterialState.hovered,
-        MaterialState.focused,
-      };
-      if (states.any(interactiveStates.contains)) {
-        return Colors.blue;
-      }
-      return Colors.red;
-    }
-
     return Column(
       children: <Widget>[
         Checkbox(
@@ -114,7 +97,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
           color: Colors.blue.shade100,
           child: GestureDetector(
             onTap: () {
-              isChecked4 = !isChecked4;
+              isChecked6 = !isChecked6;
               setState(() {});
             },
             child: MouseRegion(
@@ -130,7 +113,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
                     ),
                     activeColor: Colors.white, // 체크시,  바탕색
                     checkColor: Colors.teal, //  체크시, 체크아이콘 색
-                    value: isChecked4,
+                    value: isChecked6,
                     onChanged: (bool? value) {
                       isChecked4 = value!;
                       setState(() {});
@@ -151,11 +134,25 @@ class _MyCheckboxState extends State<MyCheckbox> {
           splashRadius: 0.0,
           activeColor: Colors.white, // 체크시,  바탕색
           checkColor: Colors.grey, //  체크시, 체크아이콘 색
-          value: isChecked6,
+          value: isChecked7,
           onChanged: (bool? value) {
             setState(() {
-              isChecked6 = value!;
+              isChecked7 = value!;
             });
+          },
+        ),
+        Checkbox(
+          side: MaterialStateBorderSide.resolveWith(
+            (states) => const BorderSide(width: 2.0, color: Colors.pink),
+          ),
+          splashRadius: 0.0,
+          activeColor: Colors.white,
+          checkColor: Colors.pink,
+          tristate: true,
+          value: isChecked8,
+          onChanged: (bool? value) {
+            isChecked8 = value;
+            setState(() {});
           },
         ),
       ],
