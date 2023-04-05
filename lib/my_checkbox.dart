@@ -111,11 +111,13 @@ class _MyCheckboxState extends State<MyCheckbox> {
                     side: MaterialStateBorderSide.resolveWith(
                       (states) => const BorderSide(width: 2.0, color: Colors.teal),
                     ),
+                    splashRadius: 0.0,
                     activeColor: Colors.white, // 체크시,  바탕색
                     checkColor: Colors.teal, //  체크시, 체크아이콘 색
                     value: isChecked6,
                     onChanged: (bool? value) {
-                      isChecked4 = value!;
+                      // isChecked4 = value!;
+                      isChecked6 = !isChecked6;
                       setState(() {});
                     },
                   ),
@@ -139,6 +141,29 @@ class _MyCheckboxState extends State<MyCheckbox> {
             setState(() {
               isChecked7 = value!;
             });
+          },
+        ),
+        Checkbox(
+          side: MaterialStateBorderSide.resolveWith(
+            (Set<MaterialState> states) {
+              if (isChecked7) {
+                return const BorderSide(color: Colors.transparent);
+              }
+
+              return const BorderSide(color: Color(0xFFC9C9C9));
+            },
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(3.0),
+          ),
+          splashRadius: 0.0,
+          activeColor: const Color(0xFF00CBC8), // 체크시,  바탕색
+          hoverColor: Colors.transparent,
+          value: !isChecked7,
+          onChanged: (bool? value) {
+            // setState(() {
+            //   isChecked7 = value!;
+            // });
           },
         ),
         Checkbox(
