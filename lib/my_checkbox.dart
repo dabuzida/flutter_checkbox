@@ -32,6 +32,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
           // fillColor: MaterialStateProperty.resolveWith(getColor),
           // overlayColor: ,
           value: isChecked,
+          // onChanged: null,
           onChanged: (bool? value) {
             setState(() {
               isChecked = value!;
@@ -39,11 +40,12 @@ class _MyCheckboxState extends State<MyCheckbox> {
           },
         ),
         Checkbox(
-          side: MaterialStateBorderSide.resolveWith(
-            (states) => const BorderSide(width: 2.0, color: Colors.black),
-          ),
-          activeColor: Colors.white, // 체크시,  바탕색
           checkColor: Colors.red, //  체크시, 체크아이콘 색
+          activeColor: Colors.white, // 체크시,  바탕색
+          side: MaterialStateBorderSide.resolveWith(
+            (states) => const BorderSide(width: 2.0, color: Colors.green),
+            // (states) => const BorderSide(width: 2.0, color: Colors.black),
+          ),
           splashRadius: 0.0, // 버튼에 호버시, 체크박스를 감싸는 물방울 그림자
           value: isChecked2,
           onChanged: (bool? value) {
@@ -180,7 +182,40 @@ class _MyCheckboxState extends State<MyCheckbox> {
             setState(() {});
           },
         ),
+
+        buildUICheckbox(
+          isClicked: isChecked2,
+          onChanged: (bool? value) {
+            if (value == null) {
+              return;
+            }
+            setState(() {
+              isChecked2 = value;
+            });
+          },
+        ),
       ],
+    );
+  }
+
+  Widget buildUICheckbox({required bool isClicked, required Function(bool? value)? onChanged}) {
+    const Color colorClicked = Colors.purple;
+    return Checkbox(
+      value: isClicked,
+      // checkColor: Colors.red,
+      activeColor: colorClicked,
+      side: MaterialStateBorderSide.resolveWith(
+        (Set<MaterialState> states) {
+          if (isClicked) {
+            return const BorderSide(color: Colors.transparent);
+          }
+
+          return const BorderSide(color: Color(0xFFC9C9C9));
+        },
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
+      splashRadius: 0.0,
+      onChanged: onChanged,
     );
   }
 }
