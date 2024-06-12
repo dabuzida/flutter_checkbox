@@ -42,7 +42,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
         Checkbox(
           checkColor: Colors.red, //  체크시, 체크아이콘 색
           activeColor: Colors.white, // 체크시,  바탕색
-          side: MaterialStateBorderSide.resolveWith(
+          side: WidgetStateBorderSide.resolveWith(
             (states) => const BorderSide(width: 2.0, color: Colors.green),
             // (states) => const BorderSide(width: 2.0, color: Colors.black),
           ),
@@ -55,7 +55,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
           },
         ),
         Checkbox(
-          side: MaterialStateBorderSide.resolveWith(
+          side: WidgetStateBorderSide.resolveWith(
             (states) => const BorderSide(width: 2.0, color: Colors.blue),
           ),
           activeColor: Colors.white, // 체크시,  바탕색
@@ -70,7 +70,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
         Checkbox(
           activeColor: Colors.white, // 체크시,  바탕색
           checkColor: Colors.green, //  체크시, 체크아이콘 색
-          side: MaterialStateBorderSide.resolveWith(
+          side: WidgetStateBorderSide.resolveWith(
             (states) => const BorderSide(width: 1.0, color: Colors.green),
           ),
           splashRadius: 0.0,
@@ -82,7 +82,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
           },
         ),
         Checkbox(
-          side: MaterialStateBorderSide.resolveWith(
+          side: WidgetStateBorderSide.resolveWith(
             (states) => const BorderSide(width: 2.0, color: Colors.grey),
           ),
           activeColor: Colors.white, // 체크시,  바탕색
@@ -110,7 +110,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
                     // shape: RoundedRectangleBorder(),
                     shape: const CircleBorder(),
                     hoverColor: null,
-                    side: MaterialStateBorderSide.resolveWith(
+                    side: WidgetStateBorderSide.resolveWith(
                       (states) => const BorderSide(width: 2.0, color: Colors.teal),
                     ),
                     splashRadius: 0.0,
@@ -132,7 +132,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
         ),
         //
         Checkbox(
-          side: MaterialStateBorderSide.resolveWith(
+          side: WidgetStateBorderSide.resolveWith(
             (states) => const BorderSide(width: 2.0, color: Colors.grey),
           ),
           splashRadius: 0.0,
@@ -146,7 +146,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
           },
         ),
         Checkbox(
-          side: MaterialStateBorderSide.resolveWith(
+          side: WidgetStateBorderSide.resolveWith(
             (Set<MaterialState> states) {
               if (isChecked7) {
                 return const BorderSide(color: Colors.transparent);
@@ -169,7 +169,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
           },
         ),
         Checkbox(
-          side: MaterialStateBorderSide.resolveWith(
+          side: WidgetStateBorderSide.resolveWith(
             (states) => const BorderSide(width: 2.0, color: Colors.pink),
           ),
           splashRadius: 0.0,
@@ -204,7 +204,7 @@ class _MyCheckboxState extends State<MyCheckbox> {
       value: isClicked,
       // checkColor: Colors.red,
       activeColor: colorClicked,
-      side: MaterialStateBorderSide.resolveWith(
+      side: WidgetStateBorderSide.resolveWith(
         (Set<MaterialState> states) {
           if (isClicked) {
             return const BorderSide(color: Colors.transparent);
